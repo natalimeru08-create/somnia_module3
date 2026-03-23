@@ -1,0 +1,61 @@
+@keyframes moveLeft {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+@keyframes moveLeft-2 {
+  0% {
+    transform: translateX(200%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+@keyframes op-1 {
+  0% {
+    opacity: 0;
+    transform: translateX(200%);
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(-100%);
+  }
+}
+@keyframes sunMove {
+  from {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateX(3vw);
+  }
+}
+
+@keyframes moonMove {
+  from {
+    opacity: 0;
+    transform: translateX(2vw);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(-2vw);
+  }
+}
+@keyframes lightWindow-1 {
+  0% {
+    background: #ffd036;
+  }
+  50% {
+    background: #0b0d36;
+  }
+  100% {
+    background: #ffd036;
+  }
+}
