@@ -64,3 +64,61 @@
     background-position: 21.2vw;
   }
 }
+@keyframes sc-1 {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(2);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+@keyframes blk-1 {
+  0% {
+    left: -20vw;
+  }
+  25% {
+    left: -11vw;
+  }
+  100% {
+    left: 20vw;
+  }
+}
+@keyframes blk-2 {
+  0% {
+    left: -20vw;
+  }
+  25% {
+    left: -10vw;
+  }
+  100% {
+    left: 20vw;
+  }
+}
+@keyframes tail {
+  0% {
+    transform: rotate(0);
+    margin-left: -5vw;
+  }
+  50% {
+    transform: rotate(20deg);
+    margin-left: -1vw;
+  }
+  100% {
+    transform: rotate(0);
+    margin-left: -5vw;
+  }
+}
+@keyframes rot-1 {
+  0% {
+    transform: rotate(2deg);
+  }
+  50% {
+    transform: rotate(-2deg);
+  }
+  100% {
+    transform: rotate(2deg);
+  }
+}

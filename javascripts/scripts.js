@@ -36,6 +36,8 @@ const sky = document.querySelector(".sky");
 const windowFirst = document.querySelector(".windowFirst");
 const sun = document.querySelector(".sun");
 const moon = document.querySelector(".moon");
+const star = document.querySelector(".stars-1");
+const blicks = document.querySelectorAll(".blick");
 function smoothScrollBy(px = 200) {
   const start = window.scrollY;
   const end = start + px;
@@ -64,8 +66,10 @@ button.addEventListener(
     setTimeout(resizeCanvas, 0);
     smoothScrollBy(100);
     clouds.classList.add("is-visible");
+    star.classList.add("is-visible");
     catImg.classList.add("dark");
     tailImg.classList.add("dark");
+    blicks.forEach((el) => el.classList.add("dark"));
     sky.classList.add("dark");
     windowFirst.classList.add("dark");
     sun.classList.add("is-move");
@@ -181,18 +185,89 @@ eightWindow.addEventListener("click", () => {
   }, 1200);
 });
 const nineWindow = document.querySelector(".window:nth-child(9)");
-// const couple = sevenWindow.querySelector(".couple");
+const couple = nineWindow.querySelector(".couple");
 
 nineWindow.addEventListener("click", () => {
   nineWindow.classList.add("active");
   setTimeout(() => {
     nineWindow.classList.remove("active");
-  }, 1200);
+  }, 1400);
 
-  // couple.classList.add("is-visible");
-  // setTimeout(() => {
-  //   couple.classList.remove("is-visible");
-  // }, 1400);
+  couple.classList.add("is-visible");
+  setTimeout(() => {
+    couple.classList.remove("is-visible");
+  }, 1400);
+});
+
+const tenthWindow = document.querySelector(".window:nth-child(10)");
+
+tenthWindow.addEventListener("click", () => {
+  tenthWindow.classList.add("active");
+  setTimeout(() => {
+    tenthWindow.classList.remove("active");
+  }, 1200);
+});
+const elevenWindow = document.querySelector(".window:nth-child(11)");
+const room = elevenWindow.querySelector(".room");
+
+elevenWindow.addEventListener("click", () => {
+  elevenWindow.classList.add("active");
+  setTimeout(() => {
+    elevenWindow.classList.remove("active");
+  }, 1400);
+
+  room.classList.add("is-visible");
+  setTimeout(() => {
+    room.classList.remove("is-visible");
+  }, 1400);
+});
+const twelveWindow = document.querySelector(".window:nth-child(12)");
+
+twelveWindow.addEventListener("click", () => {
+  twelveWindow.classList.add("active");
+  setTimeout(() => {
+    twelveWindow.classList.remove("active");
+  }, 1200);
+});
+const thirdteenWindow = document.querySelector(".window:nth-child(13)");
+
+thirdteenWindow.addEventListener("click", () => {
+  thirdteenWindow.classList.add("active");
+  setTimeout(() => {
+    thirdteenWindow.classList.remove("active");
+  }, 1200);
+});
+const fifteenWindow = document.querySelector(".window:nth-child(15)");
+
+fifteenWindow.addEventListener("click", () => {
+  fifteenWindow.classList.add("active");
+  setTimeout(() => {
+    fifteenWindow.classList.remove("active");
+  }, 1200);
+});
+
+const sixteenWindow = document.querySelector(".window:nth-child(16)");
+const catl = sixteenWindow.querySelector(".litCat");
+
+sixteenWindow.addEventListener("click", () => {
+  sixteenWindow.classList.add("active");
+  setTimeout(() => {
+    sixteenWindow.classList.remove("active");
+  }, 1400);
+
+  catl.classList.add("is-visible");
+  setTimeout(() => {
+    catl.classList.remove("is-visible");
+  }, 1400);
+});
+
+const eighteenWindow = document.querySelector(".window:nth-child(18)");
+
+eighteenWindow.addEventListener("click", () => {
+  eighteenWindow.classList.add("active");
+  setTimeout(() => {
+    eighteenWindow.classList.remove("active");
+  }, 1200);
 });
 // глаза
 
@@ -271,7 +346,7 @@ const observer = new IntersectionObserver((entries) => {
     if (entry.isIntersecting) {
       setTimeout(() => {
         target.classList.add("is-visible");
-      }, 8000);
+      }, 10000);
     }
   });
 });
@@ -440,7 +515,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
   updateHud();
 });
-// игра-2
 
 // таймер-часы
 document.addEventListener("DOMContentLoaded", () => {
@@ -448,14 +522,31 @@ document.addEventListener("DOMContentLoaded", () => {
   if (!block) return;
 
   const digits = block.querySelectorAll(".d");
-  if (digits.length < 4) return;
+  const stopBtn = block.querySelector(".timer-botton");
+  if (digits.length < 4 || !stopBtn) return;
 
   let started = false;
+  let stopped = false;
+  let timerId = null;
+
+  const alarm = new Audio("./sound/alarm.mp3");
+
+  function unlockAudio() {
+    alarm
+      .play()
+      .then(() => {
+        alarm.pause();
+        alarm.currentTime = 0;
+      })
+      .catch(() => {});
+    block.removeEventListener("click", unlockAudio);
+  }
+  block.addEventListener("click", unlockAudio);
 
   function formatTime(sec) {
     const m = String(Math.floor(sec / 60)).padStart(2, "0");
     const s = String(sec % 60).padStart(2, "0");
-    return m + s; 
+    return m + s;
   }
 
   function setDigits(sec) {
@@ -466,19 +557,38 @@ document.addEventListener("DOMContentLoaded", () => {
     digits[3].textContent = str[3];
   }
 
+  function startTimer() {
+    let time = 15;
+    setDigits(time);
+
+    timerId = setInterval(() => {
+      time--;
+      setDigits(time);
+
+      if (time <= 0) {
+        clearInterval(timerId);
+        if (!stopped) {
+          alarm.play();
+        }
+      }
+    }, 1000);
+  }
+
+  stopBtn.addEventListener("click", () => {
+    if (!started) return;
+    stopped = true;
+    clearInterval(timerId);
+    alert(
+      "Ты успел выключить будильник до того, как он прозвенел! Везунчик :)",
+    );
+  });
+
   const observer = new IntersectionObserver(
     (entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting && !started) {
           started = true;
-          let time = 15;
-          setDigits(time);
-
-          const timer = setInterval(() => {
-            time--;
-            setDigits(time);
-            if (time <= 0) clearInterval(timer);
-          }, 1000);
+          startTimer();
         }
       });
     },
@@ -486,4 +596,45 @@ document.addEventListener("DOMContentLoaded", () => {
   );
 
   observer.observe(block);
+});
+// пояснительные окошки
+const question = document.querySelector(".question");
+const help = document.querySelector(".help-panel");
+
+question.addEventListener("click", (e) => {
+  e.stopPropagation();
+  help.classList.add("open");
+  setTimeout(() => {
+    help.classList.remove("open");
+  }, 3000);
+});
+const question2 = document.querySelector(".question-2");
+const help2 = document.querySelector(".help-panel-2");
+
+question2.addEventListener("click", (e) => {
+  e.stopPropagation();
+  help2.classList.add("open");
+  setTimeout(() => {
+    help2.classList.remove("open");
+  }, 3000);
+});
+const question3 = document.querySelector(".question-3");
+const help3 = document.querySelector(".help-panel-3");
+
+question3.addEventListener("click", (e) => {
+  e.stopPropagation();
+  help3.classList.add("open");
+  setTimeout(() => {
+    help3.classList.remove("open");
+  }, 3000);
+});
+const question4 = document.querySelector(".question-4");
+const help4 = document.querySelector(".help-panel-4");
+
+question4.addEventListener("click", (e) => {
+  e.stopPropagation();
+  help4.classList.add("open");
+  setTimeout(() => {
+    help4.classList.remove("open");
+  }, 3000);
 });
