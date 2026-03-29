@@ -1,7 +1,5 @@
 @import "reset.css";
-
-
-
 @import "layout.css";
+@import '';
 @import "animation.css";
 @import "adaptive.css";

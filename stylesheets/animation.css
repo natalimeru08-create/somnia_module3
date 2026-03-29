@@ -59,3 +59,8 @@
     background: #ffd036;
   }
 }
+@keyframes run {
+  100% {
+    background-position: 21.2vw;
+  }
+}

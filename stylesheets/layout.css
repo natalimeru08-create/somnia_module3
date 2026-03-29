@@ -6,7 +6,6 @@ body {
   background-color: #abbad7;
   font-family: Arial, Helvetica, sans-serif;
   height: 52.1vw;
-
   transition:
     background 1.2s ease,
     color 1.2s ease;
@@ -188,9 +187,7 @@ body.dark p {
   background-image: url(../images/cat.png);
   background-size: 68.6vw 29.1vw;
   z-index: 3;
-  transition:
-    background 0.7s ease,
-    color 0.7s ease;
+  transition: 1.2s ease;
 }
 .catImg.dark {
   position: absolute;
@@ -209,9 +206,7 @@ body.dark p {
   width: 18.1vw;
   height: 24.5vw;
   background-size: 18.1vw 24.5vw;
-  transition:
-    background 1.2s ease,
-    color 1.2s ease;
+  transition: 1.2s ease;
 }
 .tailImg.dark {
   background-image: url(../images/tail2.png);
@@ -482,12 +477,22 @@ body.dark p {
   position: relative;
   z-index: 1;
   background-color: #221566;
+  padding-top: 10vw;
 }
 .drawCanvas {
+  position: absolute;
   width: 100%;
   height: 65.6vw;
   display: block;
 }
+.stars-2 {
+  width: 95.5vw;
+  height: 47.5vw;
+  margin-left: 2.8vw;
+  background-size: 95.5vw 47.5vw;
+  background-image: url(../images/stars.png);
+}
+
 .clouds2 {
   display: none;
 }
@@ -582,4 +587,298 @@ body.dark p {
 }
 .eye_4 {
   margin-left: 1vw;
+}
+.mask {
+  position: absolute;
+  width: 32.8vw;
+  height: 18.9vw;
+  background-image: url(../images/mask.png);
+  background-size: 32.8vw 18.9vw;
+  left: 36%;
+  z-index: 4;
+  /* cursor:
+    url("../images/cursor.png") 32 32,
+    grab; */
+}
+
+.blanket {
+  position: absolute;
+  width: 103vw;
+  height: 13vw;
+  background-image: url(../images/blanket.png);
+  background-size: 103vw 13vw;
+  top: 50.1vw;
+  margin-left: -1vw;
+  z-index: 4;
+}
+.sleep-z {
+  position: absolute;
+  font-size: 9vw;
+  font-weight: bold;
+  opacity: 0;
+  z-index: 3;
+  color: #7259ef;
+  transition: opacity 1.4s ease;
+  left: 57vw;
+}
+.z:nth-child(1) {
+  font-size: 9vw;
+  margin-left: 7.6vw;
+}
+.z:nth-child(2) {
+  font-size: 4.2vw;
+  margin-left: 3vw;
+}
+.z:nth-child(3) {
+  font-size: 3.1vw;
+}
+.sleep-z.is-visible {
+  opacity: 1;
+}
+/* блок игры */
+
+.fifthBlock {
+  position: relative;
+  display: none;
+  height: 66vw;
+  position: relative;
+  background-color: #dcbcff;
+  overflow: hidden;
+}
+.fifthBlock.is-visible {
+  display: block;
+}
+/* карточка */
+.select {
+  position: absolute;
+  left: 32%;
+  top: 15%;
+  display: block;
+  text-align: center;
+  width: 38.6vw;
+  height: 38.6vw;
+  background-color: white;
+  border-radius: 10%;
+  padding: 3.4vw 3.5vw;
+}
+.select.is-active {
+  display: none;
+}
+
+.play {
+  display: none;
+  height: 45vw;
+}
+.play.is-active {
+  display: block;
+}
+
+.select p:nth-of-type(1) {
+  color: black;
+  text-align: left;
+  font-weight: lighter;
+  margin-bottom: 4.8vw;
+}
+.value {
+  color: black;
+  font-size: 12.1vw;
+  width: 6.7vw;
+  margin-top: 3vw;
+  text-align: center;
+  margin-left: 7vw;
+  margin-right: 7vw;
+}
+.pick {
+  display: flex;
+  margin-left: 2vw;
+  margin-bottom: 5vw;
+}
+.start {
+  width: 22.4vw;
+  height: 4.4vw;
+  background-image: url(../images/start.png);
+  background-size: 22.4vw 4.4vw;
+  padding-top: 1.6vw;
+  margin-left: 4.5vw;
+  font-size: 1.4vw;
+}
+.left,
+.right {
+  width: 3vw;
+  height: 5vw;
+  background-size: 3vw 5vw;
+  margin-top: 6.3vw;
+}
+.left {
+  background-image: url(../images/left.png);
+}
+.right {
+  background-image: url(../images/right.png);
+}
+
+/* игра */
+
+.store {
+  margin-top: 3.4vw;
+  margin-left: 2.8vw;
+}
+.store p:first-child {
+  color: #76689f;
+  width: 22.4vw;
+  font-weight: lighter;
+  font-size: 1.4vw;
+}
+.store .target {
+  font-size: 4.7vw;
+  font-weight: bolder;
+  color: #101340;
+}
+.sheep {
+  top: 40vw;
+  background-image: url(../images/sheeps.png);
+  background-size: 23vw 9.9vw;
+  width: 10.6vw;
+  height: 9.9vw;
+  animation: run 0.8s steps(2) infinite;
+  position: absolute;
+  z-index: 3;
+  left: -40vw;
+}
+.sheep.jump {
+  background-image: url(..//images/sheepJump.png);
+  width: 11.9vw;
+  height: 9.5vw;
+  background-size: 11.9vw 9.5vw;
+  animation: none;
+}
+.line_1,
+.line_2 {
+  background-color: white;
+  height: 0.7vw;
+  width: 100vw;
+  z-index: 2;
+}
+.line_2 {
+  position: absolute;
+  top: 50vw;
+}
+.fence {
+  position: absolute;
+  top: 40vw;
+  width: 14vw;
+  height: 10.7vw;
+  background-image: url(../images/fence.png);
+  background-size: 14vw 10.7vw;
+  text-align: center;
+  color: black;
+  font-size: 2vw;
+  font-weight: lighter;
+  padding-top: 4.8vw;
+  left: 43vw;
+  z-index: 10;
+  pointer-events: auto;
+}
+
+/* будильник */
+
+.seventhBlock {
+  display: none;
+  height: 56vw;
+  overflow: hidden;
+}
+.seventhBlock.is-visible {
+  display: block;
+}
+.d {
+  margin-top: -3vw;
+  font-family: "Digital-7";
+  font-size: 21.3vw;
+}
+.blanket-2 {
+  position: absolute;
+  width: 103vw;
+  height: 13vw;
+  background-image: url(../images/blanket.png);
+  transform: rotate(180deg);
+  background-size: 103vw 13vw;
+  margin-top: -14vw;
+  left: -1.9vw;
+  z-index: 2;
+}
+.bd2 {
+  position: absolute;
+  width: 100vw;
+  height: 20vw;
+  background-image: url(../images/bed.png);
+  transform: rotate(180deg);
+  background-size: 100vw 34.6vw;
+  margin-top: -8vw;
+}
+.timer {
+  position: absolute;
+  padding-top: 1.3vw;
+  padding-left: 2vw;
+  display: flex;
+  width: 59.4vw;
+  height: 21.7vw;
+  background-color: #6248e7;
+  border: solid 0.8vw #6861f1;
+  border-radius: 3vw;
+  margin-top: -4vw;
+  margin-left: 20vw;
+  z-index: 2;
+}
+.slot {
+  padding: 1vw 1vw 1vw 1vw;
+  width: 11.6vw;
+  height: 17.5vw;
+  background: #463bc1;
+  border-radius: 2vw;
+}
+.slot:nth-child(2) {
+  margin-left: 1.7vw;
+  margin-right: 4.2vw;
+}
+.slot:nth-child(4) {
+  margin-right: 1.7vw;
+}
+.colon {
+  position: absolute;
+  font-size: 10vw;
+  color: #463bc1;
+  text-align: center;
+  margin-left: 25.6vw;
+  margin-top: 3vw;
+}
+.timer-botton {
+  width: 34.3vw;
+  height: 7.5vw;
+  border-radius: 3vw;
+  background-color: #453fc6;
+  margin-top: 15vw;
+  margin-left: 33vw;
+}
+.basement {
+  position: absolute;
+  display: flex;
+  margin-top: 15vw;
+  width: 100vw;
+  height: 19vw;
+  border-radius: 3vw;
+  background-color: #38278c;
+  padding-top: 8.5vw;
+  padding-left: 2.6vw;
+}
+.text_2 p {
+  font-size: 1.9vw;
+  margin-bottom: 1vw;
+}
+.text_2 {
+  margin-right: 67vw;
+}
+.logo {
+  width: 5.3vw;
+  height: 5.3vw;
+  background-size: 5.3vw 5.3vw;
+  background-image: url(../images/logo.png);
 }
