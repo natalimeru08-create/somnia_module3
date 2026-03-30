@@ -1,2 +1,198 @@
-@media (max-width: 600px) {
+@media all and (max-width: 1440px) {
+  .catImg {
+    margin-top: 1vw;
+  }
+  .eyes {
+    margin-top: 11vw;
+  }
+  .queBtn {
+    top: 49vw;
+  }
+  .firstBlock {
+    height: 54vw;
+  }
+  .clouds2.is-visible {
+    top: 98vw;
+  }
+}
+@media all and (max-width: 1280px) {
+  .catImg {
+    margin-top: 8vw;
+  }
+  .eyes {
+    margin-top: 18vw;
+  }
+  .tailImg {
+    margin-top: -6vw;
+  }
+  .button {
+    margin-top: 19vw;
+    margin-left: 40vw;
+  }
+  .queBtn {
+    top: 55vw;
+  }
+  .firstBlock {
+    height: 60vw;
+  }
+  .clouds2.is-visible {
+    top: 104vw;
+  }
+}
+@media all and (max-width: 600px) {
+  .firstBlock {
+    height: 166vw;
+  }
+  h1 {
+    font-size: 11vw;
+  }
+  p {
+    color: #dde8ff;
+  }
+  .p1 {
+    font-size: 2.6vw;
+  }
+  .catImg,
+  .catImg.dark {
+    top: 120vw;
+    width: 98vw;
+    height: 42vw;
+    margin-left: -10vw;
+    background-size: 98vw 42vw;
+  }
+
+  .windowFirst,
+  .windowFirst.dark {
+    margin-left: 51vw;
+    margin-top: -10.6vw;
+    width: 49.5vw;
+    height: 125.7vw;
+    background-size: 124.8vw 125.7vw;
+  }
+  .sky {
+    width: 30.5vw;
+    height: 96vw;
+    margin-left: 70vw;
+  }
+  .button {
+    width: 30vw;
+    height: 30vw;
+    margin-top: 58vw;
+    margin-left: 11vw;
+  }
+  .buttonInside {
+    width: 6.1vw;
+    height: 11vw;
+    background-size: 6.1vw 11vw;
+    top: 9vw;
+    left: 12vw;
+  }
+  .blick {
+    top: 4vw;
+    left: -11vw;
+    width: 60vw;
+    height: 5vw;
+    animation: blk-3 6s linear infinite;
+  }
+  .eyes {
+    margin-left: 4vw;
+    margin-top: 118vw;
+    gap: 3vw;
+  }
+  .eye_1,
+  .eye_2 {
+    width: 7vw;
+    height: 7vw;
+  }
+  .eye_1 {
+    margin-left: 36vw;
+  }
+  .pupil {
+    width: 6vw;
+    height: 6vw;
+  }
+  .tailImg {
+    top: 115vw;
+    margin-left: -5vw;
+    width: 26vw;
+    height: 32vw;
+    background-size: 26vw 32vw;
+    animation: tail-1 6s ease infinite;
+  }
+  .queBtn {
+    top: 155vw;
+    left: 90vw;
+    width: 7.5vw;
+    height: 7.5vw;
+    font-size: 3.5vw;
+    padding: 2vw 0 0 2.6vw;
+  }
+  .blick:nth-of-type(2) {
+    top: 4vw;
+    left: -10vw;
+    width: 60vw;
+    height: 2.8vw;
+    animation: blk-4 5s linear infinite;
+  }
+  .sun {
+    width: 34.2vw;
+    height: 34.2vw;
+    margin-left: 15vw;
+    margin-top: -3vw;
+  }
+  .moon {
+    width: 34.2vw;
+    height: 34.2vw;
+    margin-left: 9vw;
+    margin-top: 23vw;
+    background-size: 34.2vw 34.2vw;
+  }
+  .sunsFace {
+    margin-top: 10vw;
+    margin-left: 3vw;
+    width: 11vw;
+    height: 9vw;
+    background-size: 11vw 9vw;
+  }
+  .light {
+    width: 35vw;
+    height: 42vw;
+    background-size: 35vw 42vw;
+    margin-top: 7vw;
+    left: -5vw;
+  }
+  .star:nth-child(4) {
+    top: 70vw;
+    left: 24vw;
+    animation: sc-1 7s ease infinite;
+  }
+  .star:nth-child(5) {
+    top: 80vw;
+    left: 10vw;
+    animation: sc-1 3.5s ease infinite;
+  }
+  .help-panel.open {
+    top: 107vw;
+    left: 48vw;
+    width: 50vw;
+    height: 56vw;
+  }
+  .secondBlock.is-visible {
+    height: 166vw;
+  }
+  .building {
+    width: 79.8vw;
+    height: 166vw;
+    padding-top: 3vw;
+    padding-left: 2.9vw;
+  }
+  .windows {
+    grid-template-columns: repeat(6, 7.1vw);
+    grid-template-rows: repeat(3, 12vw);
+    column-gap: 2.7vw;
+    row-gap: 5vw;
+  }
+  .clouds2.is-visible {
+    top: 320vw;
+  }
 }
